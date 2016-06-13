@@ -19,6 +19,7 @@
         <module>helper</module>
         <module>runner</module>
         <module>configurator</module>
+        <module>io</module>
     </modules>
 
 
