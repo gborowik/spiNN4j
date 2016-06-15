@@ -1,5 +1,7 @@
 package com.spiNN4j.runner;
 
+import com.spiNN4j.model.algorithm.Type;
+
 import java.io.Closeable;
 import java.io.IOException;
 import java.io.Serializable;
@@ -10,17 +12,25 @@ import java.io.Serializable;
  */
 public class Configurator implements Serializable, Closeable {
 
-    private boolean lazy;
-
-    public Configurator() {
-        lazy = false;
-    }
-
-    public Configurator lazy(){
-        lazy = true;
+    private Type type;
+    public Configurator algorithmType(Type type) {
+        this.type = type;
         return this;
     }
 
+
+    private String folder;
+    public Configurator folder(String folder) {
+        this.folder = folder;
+        return this;
+    }
+
+
+    private String fileMask;
+    public Configurator fileMask(String fileMask) {
+        this.fileMask = fileMask;
+        return this;
+    }
 
 
     @Override
