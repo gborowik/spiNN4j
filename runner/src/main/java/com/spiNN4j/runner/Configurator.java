@@ -12,21 +12,21 @@ import java.io.Serializable;
  */
 public class Configurator implements Serializable, Closeable {
 
-    private Type type;
+    protected Type type;
     public Configurator algorithmType(Type type) {
         this.type = type;
         return this;
     }
 
 
-    private String folder;
+    protected String folder;
     public Configurator folder(String folder) {
         this.folder = folder;
         return this;
     }
 
 
-    private String fileMask;
+    protected String fileMask;
     public Configurator fileMask(String fileMask) {
         this.fileMask = fileMask;
         return this;
