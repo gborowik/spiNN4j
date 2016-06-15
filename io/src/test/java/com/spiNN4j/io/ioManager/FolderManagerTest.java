@@ -15,8 +15,31 @@ import static org.fest.assertions.api.Assertions.assertThat;
  * e-mail: borowik.grzegorz@gmail.com
  */
 public class FolderManagerTest {
+
     @Test
-    public void filesAtSelectedMatch() throws Exception {
+    public void shouldReturnNoFiles() throws Exception {
+
+        List<String> fileList = new FolderManager()
+                .filesAtPathMatch(",")
+                .map(path -> path.getFileName().toString())
+                .collect(Collectors.toList());
+
+        assertThat(fileList).isEmpty();
+    }
+    
+    @Test
+    public void shouldReturnFilesAtMainPath() throws Exception {
+
+        List<String> fileList = new FolderManager()
+                .filesAtPath()
+                .map(path -> path.getFileName().toString())
+                .collect(Collectors.toList());
+
+        assertThat(fileList).containsOnly(".DS_Store", "io.iml", "pom.xml");
+    }
+
+    @Test
+    public void shouldReturnFilesAtPathWhichMatchPattern() throws Exception {
 
         List<String> fileList = new FolderManager("./src/main/java/com/spiNN4j/io/ioManager")
                 .filesAtPathMatch("*.j*")
@@ -27,28 +50,21 @@ public class FolderManagerTest {
     }
 
     @Test
-    public void filesAtPathMatchIterator() throws Exception {
+    public void shouldIterateFilesAtPathWhichMatchPattern() throws Exception {
         Iterator<Path> iterator = new FolderManager("./src/main/java/com/spiNN4j/io/ioManager")
                 .filesAtPathMatch("*").iterator();
 
         List<String> fileList = new ArrayList<>();
 
         for (; iterator.hasNext(); ) {
-            fileList.add(iterator.next().getFileName().toString());
+            fileList.add(iterator
+                    .next()
+                    .getFileName()
+                    .toString()
+            );
         }
 
         assertThat(fileList).containsOnly("FolderManager.java");
-    }
-
-    @Test
-    public void filesAtMainPath() throws Exception {
-
-        List<String> fileList = new FolderManager()
-                .filesAtPath()
-                .map(path -> path.getFileName().toString())
-                .collect(Collectors.toList());
-
-        assertThat(fileList).containsOnly(".DS_Store", "io.iml", "pom.xml");
     }
 
 }
