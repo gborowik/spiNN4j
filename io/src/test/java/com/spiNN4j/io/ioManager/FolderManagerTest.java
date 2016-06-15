@@ -39,7 +39,7 @@ public class FolderManagerTest {
     }
 
     @Test
-    public void shouldReturnFilesAtPathWhichMatchPattern() throws Exception {
+    public void shouldReturnFilesWhichMatchPatternAtPath() throws Exception {
 
         List<String> fileList = new FolderManager("./src/main/java/com/spiNN4j/io/ioManager")
                 .filesAtPathMatch("*.j*")
@@ -50,7 +50,7 @@ public class FolderManagerTest {
     }
 
     @Test
-    public void shouldIterateFilesAtPathWhichMatchPattern() throws Exception {
+    public void shouldIterateFilesWhichMatchPatternAtPath() throws Exception {
         Iterator<Path> iterator = new FolderManager("./src/main/java/com/spiNN4j/io/ioManager")
                 .filesAtPathMatch("*").iterator();
 
