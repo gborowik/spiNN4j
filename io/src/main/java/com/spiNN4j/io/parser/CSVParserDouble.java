@@ -35,11 +35,16 @@ public class CSVParserDouble {
     }
 
     private void parseLine(Scanner scanner, List<DataVector<Double>> matrix) {
+
         matrix.add(new DataVector<>(Arrays
                 .stream(scanner.nextLine().split(","))
-                .map(el -> Double.valueOf(el.trim()))
+                .map(el -> getaDouble(el))
                 .collect(Collectors.toList())
         ));
+    }
+
+    private Double getaDouble(String el) {
+        return Double.valueOf(el.trim());
     }
 
 }
