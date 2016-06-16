@@ -1,7 +1,10 @@
 package com.spiNN4j.io.ioManager;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.stream.Stream;
 
 /**
@@ -41,6 +44,21 @@ public class FolderManager {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public List<InputStream> inputStreamsFilesMatch(String pattern) {
+
+        List<InputStream> inputStreams = new ArrayList<>();
+
+        allFilesAtPathMatch(pattern).forEach(file -> {
+            try {
+                inputStreams.add(Files.newInputStream(file));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+        return inputStreams;
     }
 
 

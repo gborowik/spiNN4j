@@ -4,9 +4,7 @@ import com.spiNN4j.io.ioManager.FolderManager;
 import com.spiNN4j.model.data.DataMatrix;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
@@ -19,7 +17,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 public class CSVParserDoubleTest {
     @Test
     public void parse() throws Exception {
-        CSVParserDouble parser = new CSVParserDouble(inputStreamFrom("./src/test/resources/", "sam1_eeg.csv"));
+        CSVParserDouble parser = new CSVParserDouble(inputStreamFrom("./src/test/resources/", "sam1_eegj.csv"));
 
         DataMatrix<Double> matrix = parser.parse();
 
@@ -33,15 +31,8 @@ public class CSVParserDoubleTest {
     }
 
 
-    private InputStream inputStreamFrom(String folder, String file) throws IOException {
-
-        return Files.newInputStream(
-                new FolderManager(folder)
-                        .allFilesAtPathMatch(file)
-                        .collect(Collectors.toList())
-                        .get(0)
-        );
-
+    private InputStream inputStreamFrom(String folder, String file) {
+        return new FolderManager(folder).inputStreamsFilesMatch(file).get(0);
     }
 
 }
