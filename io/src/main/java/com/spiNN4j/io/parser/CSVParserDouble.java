@@ -1,7 +1,13 @@
 package com.spiNN4j.io.parser;
 
+import com.spiNN4j.model.data.DataMatrix;
+import com.spiNN4j.model.data.DataVector;
+
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 /**
@@ -25,7 +31,7 @@ public class CSVParserDouble {
             parseLine(scanner, matrix);
         }
 
-        return new DataMatrix<Double>(matrix, matrix.first().width());
+        return new DataMatrix<Double>(matrix, matrix.get(0).width());
     }
 
     private void parseLine(Scanner scanner, List<DataVector<Double>> matrix) {
