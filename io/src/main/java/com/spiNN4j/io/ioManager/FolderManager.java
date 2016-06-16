@@ -30,7 +30,7 @@ public class FolderManager {
         }
     }
 
-    public Stream<Path> filesAtPathMatch(String pattern) {
+    public Stream<Path> match(String pattern) {
         try {
             PathMatcher matcher = FileSystems.getDefault()
                     .getPathMatcher("glob:" + pattern);
