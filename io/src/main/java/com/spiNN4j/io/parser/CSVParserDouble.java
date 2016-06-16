@@ -31,11 +31,11 @@ public class CSVParserDouble {
             parseLine(scanner, matrix);
         }
 
-        return new DataMatrix<Double>(matrix, matrix.get(0).width());
+        return new DataMatrix<>(matrix, matrix.get(0).width());
     }
 
     private void parseLine(Scanner scanner, List<DataVector<Double>> matrix) {
-        matrix.add(new DataVector<Double>(Arrays
+        matrix.add(new DataVector<>(Arrays
                 .stream(scanner.nextLine().split(","))
                 .map(el -> Double.valueOf(el.trim()))
                 .collect(Collectors.toList()))
