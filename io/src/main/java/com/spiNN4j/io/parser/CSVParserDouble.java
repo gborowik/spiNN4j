@@ -38,8 +38,8 @@ public class CSVParserDouble {
         matrix.add(new DataVector<>(Arrays
                 .stream(scanner.nextLine().split(","))
                 .map(el -> Double.valueOf(el.trim()))
-                .collect(Collectors.toList()))
-        );
+                .collect(Collectors.toList())
+        ));
     }
 
 }
