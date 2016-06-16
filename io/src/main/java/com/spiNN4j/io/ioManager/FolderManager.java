@@ -20,7 +20,7 @@ public class FolderManager {
         this.path = Paths.get(path);
     }
 
-    public Stream<Path> filesAtPath() {
+    public Stream<Path> allFilesAtPath() {
         try {
             return Files.find(path, 1, (path, attrs) -> attrs.isRegularFile());
 
@@ -30,7 +30,7 @@ public class FolderManager {
         }
     }
 
-    public Stream<Path> match(String pattern) {
+    public Stream<Path> allFilesAtPathMatch(String pattern) {
         try {
             PathMatcher matcher = FileSystems.getDefault()
                     .getPathMatcher("glob:" + pattern);

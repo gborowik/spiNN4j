@@ -20,7 +20,7 @@ public class FolderManagerTest {
     public void shouldReturnNoFiles() throws Exception {
 
         List<String> fileList = new FolderManager()
-                .match(",")
+                .allFilesAtPathMatch(",")
                 .map(path -> path.getFileName().toString())
                 .collect(Collectors.toList());
 
@@ -31,7 +31,7 @@ public class FolderManagerTest {
     public void shouldReturnFilesAtMainPath() throws Exception {
 
         List<String> fileList = new FolderManager()
-                .filesAtPath()
+                .allFilesAtPath()
                 .map(path -> path.getFileName().toString())
                 .collect(Collectors.toList());
 
@@ -42,7 +42,7 @@ public class FolderManagerTest {
     public void shouldReturnFilesWhichMatchPatternAtPath() throws Exception {
 
         List<String> fileList = new FolderManager("./src/main/java/com/spiNN4j/io/ioManager")
-                .match("*.j*")
+                .allFilesAtPathMatch("*.j*")
                 .map(path -> path.getFileName().toString())
                 .collect(Collectors.toList());
 
@@ -52,7 +52,7 @@ public class FolderManagerTest {
     @Test
     public void shouldIterateFilesWhichMatchPatternAtPath() throws Exception {
         Iterator<Path> iterator = new FolderManager("./src/main/java/com/spiNN4j/io/ioManager")
-                .match("*").iterator();
+                .allFilesAtPathMatch("*").iterator();
 
         List<String> fileList = new ArrayList<>();
 
