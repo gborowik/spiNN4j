@@ -17,7 +17,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 public class CSVParserDoubleTest {
     @Test
     public void parse() throws Exception {
-        CSVParserDouble parser = new CSVParserDouble(inputStreamFrom("./src/test/resources/", "sam1_eegj.csv"));
+        CSVParserDouble parser = new CSVParserDouble(inputStreamFrom("./src/test/resources/", "sam1_eeg.csv"));
 
         DataMatrix<Double> matrix = parser.parse();
 
