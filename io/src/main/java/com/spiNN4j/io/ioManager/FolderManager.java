@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Stream;
 
+import static java.nio.file.Files.newInputStream;
+
 /**
  * Created by Grzegorz Borowik on 2016-06-15 1:45 PM.
  * e-mail: borowik.grzegorz@gmail.com
@@ -51,7 +53,7 @@ public class FolderManager {
         return allFilesAtPathMatch(pattern)
                 .map(file -> {
                             try {
-                                return Files.newInputStream(file);
+                                return newInputStream(file);
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
@@ -66,7 +68,7 @@ public class FolderManager {
 
         allFilesAtPathMatch(pattern).forEach(file -> {
             try {
-                inputStreams.add(Files.newInputStream(file));
+                inputStreams.add(newInputStream(file));
             } catch (IOException e) {
                 e.printStackTrace();
             }
