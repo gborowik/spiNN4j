@@ -32,7 +32,7 @@ public class CSVParserDoubleTest {
 
 
     private InputStream inputStreamFrom(String folder, String file) {
-        return new FolderManager(folder).inputStreamsFilesMatch(file).get(0);
+        return new FolderManager(folder).inputStreamsFilesMatch(file).iterator().next();
     }
 
 }

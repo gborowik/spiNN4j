@@ -46,7 +46,21 @@ public class FolderManager {
         }
     }
 
-    public List<InputStream> inputStreamsFilesMatch(String pattern) {
+    public Stream<InputStream> inputStreamsFilesMatch(String pattern) {
+
+        return allFilesAtPathMatch(pattern)
+                .map(file -> {
+                            try {
+                                return Files.newInputStream(file);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            return null;
+                        }
+                );
+    }
+
+    public List<InputStream> listOfInputStreamsFilesMatch(String pattern) {
 
         List<InputStream> inputStreams = new ArrayList<>();
 
