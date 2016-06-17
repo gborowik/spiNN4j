@@ -38,12 +38,12 @@ public class CSVParserDouble {
 
         matrix.add(new DataVector<>(Arrays
                 .stream(scanner.nextLine().split(","))
-                .map(el -> getaDouble(el))
+                .map(el -> toDouble(el))
                 .collect(Collectors.toList())
         ));
     }
 
-    private Double getaDouble(String el) {
+    private Double toDouble(String el) {
         return Double.valueOf(el.trim());
     }
 
