@@ -65,7 +65,7 @@ public class DataVector<T> {
     /**
      * @return row (of type {@code List<T>}).
      */
-    public List<T> getRow() {
+    public List<T> getData() {
         return row;
     }
 
