@@ -28,19 +28,19 @@ public class CSVParserDouble {
 
         List<DataVector<Double>> matrix = new ArrayList<>();
         while (scanner.hasNextLine()) {
-            parseLine(scanner, matrix);
+            matrix.add(parseLine(scanner));
         }
 
         return new DataMatrix<>(matrix, matrix.get(0).width());
     }
 
-    private void parseLine(Scanner scanner, List<DataVector<Double>> matrix) {
+    private DataVector<Double> parseLine(Scanner scanner) {
 
-        matrix.add(new DataVector<>(Arrays
+        return new DataVector<>(Arrays
                 .stream(scanner.nextLine().split(","))
                 .map(el -> toDouble(el))
                 .collect(Collectors.toList())
-        ));
+        );
     }
 
     private Double toDouble(String el) {
