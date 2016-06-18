@@ -15,4 +15,8 @@ public class StreamOfSamples {
     public StreamOfSamples(Stream<DataMatrix<Double>> samples) {
         this.samples = samples;
     }
+
+    public Stream<DataMatrix<Double>> getStream() {
+        return samples;
+    }
 }

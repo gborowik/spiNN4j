@@ -1,4 +1,4 @@
-package com.spiNN4j.algorithm.AER.measure;
+package com.spiNN4j.algorithm.AER.statistics;
 
 import com.codepoetics.protonpack.StreamUtils;
 import com.spiNN4j.model.data.DataMatrix;
