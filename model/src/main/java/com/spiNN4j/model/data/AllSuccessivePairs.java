@@ -3,18 +3,18 @@ package com.spiNN4j.model.data;
 import java.util.Iterator;
 import java.util.List;
 
-public class AllFollowingPairs {
+public class AllSuccessivePairs {
     /**
-     * Generates lazy iterable of all following pairs of elements for a given list.
+     * Generates lazy iterable of all successive pairs of elements for a given list.
      * <p>
-     * Complexity: Obtaining all following pairs has complexity O(n).
+     * Complexity: Obtaining all successive pairs has complexity O(n).
      * <p>
      * Remark 1: Returned pair changes when next() is called on iterator!!!
      *
      * @param list a list of elements for which pairs are delivered
      * @return lazy iterable
      */
-    public static <T> Iterable<Pair<T>> allFollowingPairs(final List<T> list) {
+    public static <T> Iterable<Pair<T>> allSuccessivePairs(final List<T> list) {
 
         return () -> new Iterator<Pair<T>>() {
             int firstIndex = -1;

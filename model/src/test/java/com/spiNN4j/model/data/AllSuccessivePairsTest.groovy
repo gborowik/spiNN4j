@@ -2,12 +2,12 @@ package com.spiNN4j.model.data
 
 import spock.lang.Specification
 
-import static com.spiNN4j.model.data.AllFollowingPairs.allFollowingPairs
+import static AllSuccessivePairs.allSuccessivePairs
 
-class AllFollowingPairsTest extends Specification {
-    def "AllFollowingPairs should return all following pairs"() {
+class AllSuccessivePairsTest extends Specification {
+    def "AllSuccessivePairs should return all successive pairs"() {
         given:
-        List<String> allPairs = allFollowingPairs(list).collect(this.&concat)
+        List<String> allPairs = allSuccessivePairs(list).collect(this.&concat)
         expect:
         allPairs.containsAll(expected)
         where:
@@ -22,7 +22,7 @@ class AllFollowingPairsTest extends Specification {
 
     def "AllPairs should have a proper number of elements"() {
         given:
-        List<String> allPairs = allFollowingPairs(list).collect(this.&concat)
+        List<String> allPairs = allSuccessivePairs(list).collect(this.&concat)
         expect:
         allPairs.size() == expected
         where:
@@ -34,7 +34,7 @@ class AllFollowingPairsTest extends Specification {
         ['1'] * 20 | 19
     }
 
-    private String concat(AllFollowingPairs.Pair<String> pair) {
+    private String concat(AllSuccessivePairs.Pair<String> pair) {
         return "${pair.first} ${pair.second}".toString()
     }
 }
