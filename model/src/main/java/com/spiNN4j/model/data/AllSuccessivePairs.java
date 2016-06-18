@@ -3,6 +3,10 @@ package com.spiNN4j.model.data;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * Created by Grzegorz Borowik on 2016-06-19 4:50 PM.
+ * e-mail: borowik.grzegorz@gmail.com
+ */
 public class AllSuccessivePairs {
     /**
      * Generates lazy iterable of all successive pairs of elements for a given list.
