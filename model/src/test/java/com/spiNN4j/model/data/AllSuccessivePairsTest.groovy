@@ -5,7 +5,7 @@ import spock.lang.Specification
 import static AllSuccessivePairs.allSuccessivePairs
 
 /**
- * Created by Grzegorz Borowik on 2016-06-15 6:23 PM.
+ * Created by Grzegorz Borowik on 2016-06-17 6:23 PM.
  * e-mail: borowik.grzegorz@gmail.com
  */
 class AllSuccessivePairsTest extends Specification {
