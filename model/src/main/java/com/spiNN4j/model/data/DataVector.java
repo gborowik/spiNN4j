@@ -10,7 +10,7 @@ import java.util.function.Function;
 import static java.util.stream.Collectors.toList;
 
 /**
- * Created by Grzegorz Borowik on 2016-06-16 8:02 PM.
+ * Created by Grzegorz Borowik on 2016-06-16 8:02 AM.
  * e-mail: borowik.grzegorz@gmail.com
  */
 public class DataVector<T> {
