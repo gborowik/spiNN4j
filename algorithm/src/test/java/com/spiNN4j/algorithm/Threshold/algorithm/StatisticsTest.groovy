@@ -20,20 +20,22 @@ public class StatisticsTest extends Specification {
         result == expected
 
         where:
-        matrix             | expected
-        [[5d], [3d], [7d]] | [5d]
+        matrix                         | expected
+        [[5d], [3d], [7d]]             | [5d]
+        [[5d, 2d], [3d, 7d], [7d, 3d]] | [5d, 4d]
     }
 
     def "Should return standardDeviationForColumns"() {
-//        when:
-//        List<Double> result = statistics.standardDeviationForColumns(toDataMatrix(matrix)).getData();
-//
-//        then:
-//        result == expected
-//
-//        where:
-//        matrix | expected
+        when:
+        List<Double> result = statistics.standardDeviationForColumns(toDataMatrix(matrix)).getData();
 
+        then:
+        result == expected
+
+        where:
+        matrix                         | expected
+        [[5d], [3d], [7d]]             | [2d]
+        [[5d, 2d], [3d, 7d], [7d, 3d]] | [2d, 2.6457513110645907d]
     }
 
     DataMatrix<Double> toDataMatrix(List<List<Double>> data) {
