@@ -1,4 +1,4 @@
-package com.spiNN4j.algorithm.AER.model;
+package com.spiNN4j.algorithm.Threshold.model;
 
 import com.spiNN4j.model.data.DataMatrix;
 

@@ -1,7 +1,7 @@
-package com.spiNN4j.algorithm.AER;
+package com.spiNN4j.algorithm.Threshold;
 
-import com.spiNN4j.algorithm.AER.model.StreamOfSamples;
-import com.spiNN4j.algorithm.AER.model.StreamOfSamplesAsSpikes;
+import com.spiNN4j.algorithm.Threshold.model.StreamOfSamples;
+import com.spiNN4j.algorithm.Threshold.model.ThresholdVector;
 import com.spiNN4j.model.algorithm.Algorithm;
 import com.spiNN4j.runner.Configurator;
 
@@ -9,12 +9,12 @@ import com.spiNN4j.runner.Configurator;
  * Created by Grzegorz Borowik on 2016-06-17 2:51 PM.
  * e-mail: borowik.grzegorz@gmail.com
  */
-public class AERAlgorithm implements Algorithm {
+public class ThresholdAlgorithm implements Algorithm {
     StreamOfSamples input;
-    StreamOfSamplesAsSpikes output;
+    ThresholdVector output;
     Configurator configurator;
 
-    public AERAlgorithm(StreamOfSamples input, StreamOfSamplesAsSpikes output, Configurator configurator) {
+    public ThresholdAlgorithm(StreamOfSamples input, ThresholdVector output, Configurator configurator) {
         this.input = input;
         this.output = output;
         this.configurator = configurator;
@@ -22,7 +22,7 @@ public class AERAlgorithm implements Algorithm {
 
     @Override
     public void run() {
-
+        input.getStream().
 
     }
 }

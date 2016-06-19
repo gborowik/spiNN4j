@@ -1,4 +1,4 @@
-package com.spiNN4j.algorithm.AER.algorithm;
+package com.spiNN4j.algorithm.Threshold.algorithm;
 
 import com.codepoetics.protonpack.StreamUtils;
 import com.spiNN4j.model.data.DataMatrix;
@@ -33,7 +33,7 @@ public class Helper {
                 .collect(Collectors.toList()));
     }
 
-    public DataVector<Double> multiplyVectorByValue(DataVector<Double> vector, Double value) {
+    public DataVector<Double> multiplyRowByValue(DataVector<Double> vector, Double value) {
         return new DataVector<>(vector.getData().stream()
                 .map(el -> el * value)
                 .collect(Collectors.toList()));
