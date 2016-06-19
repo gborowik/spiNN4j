@@ -1,6 +1,4 @@
-package com.spiNN4j.algorithm.AER.model;
-
-import com.spiNN4j.model.data.DataMatrix;
+package com.spiNN4j.model.data;
 
 import java.util.stream.Stream;
 
