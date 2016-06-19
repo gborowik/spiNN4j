@@ -93,4 +93,23 @@ public class DataMatrix<T> {
                 .collect(toList())
                 , width);
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        DataMatrix<?> that = (DataMatrix<?>) o;
+
+        if (width != that.width) return false;
+        return data.equals(that.data);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = data.hashCode();
+        result = 31 * result + width;
+        return result;
+    }
 }
