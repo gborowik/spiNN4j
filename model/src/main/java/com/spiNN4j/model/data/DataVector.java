@@ -3,6 +3,7 @@ package com.spiNN4j.model.data;
 import com.google.common.base.Joiner;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 
@@ -32,6 +33,14 @@ public class DataVector<T> {
         this.row = row;
     }
 
+    /**
+     * Creates a row of specified size and initializes with specified value.
+     * @param size size of row
+     * @param value value of element the row to be filled with
+     */
+    public DataVector(int size, T value){
+        this.row = new ArrayList<>(Collections.nCopies(size, value));
+    }
 
     /**
      * @return size of the row.
