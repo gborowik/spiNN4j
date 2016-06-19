@@ -22,7 +22,6 @@ public class ThresholdAlgorithm implements Algorithm {
 
     @Override
     public void run() {
-        input.getStream().
 
     }
 }

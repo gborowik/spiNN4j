@@ -17,7 +17,6 @@ import static java.lang.Math.abs;
 public class Helper {
 
     public DataMatrix<Double> absoluteDifferenceBetweenSuccessiveRows(DataMatrix<Double> data) {
-
         List<DataVector<Double>> differences = StreamEx.of(data.getData())
                 .pairMap((first, second) -> absoluteDifferenceBetweenRows(first, second))
                 .collect(Collectors.toList());
@@ -26,7 +25,6 @@ public class Helper {
     }
 
     private DataVector<Double> absoluteDifferenceBetweenRows(DataVector<Double> first, DataVector<Double> second) {
-
         return new DataVector<>(StreamUtils.zip(
                 first.getData().stream(), second.getData().stream(),
                 (a, b) -> abs(a - b))
