@@ -1,9 +1,9 @@
 package com.spiNN4j.algorithm.Threshold;
 
-import com.spiNN4j.algorithm.Threshold.model.StreamOfSamples;
 import com.spiNN4j.algorithm.Threshold.model.ThresholdVector;
 import com.spiNN4j.model.algorithm.Algorithm;
 import com.spiNN4j.model.algorithm.AlgorithmRunner;
+import com.spiNN4j.model.data.StreamOfSamples;
 import com.spiNN4j.runner.Configurator;
 
 /**
