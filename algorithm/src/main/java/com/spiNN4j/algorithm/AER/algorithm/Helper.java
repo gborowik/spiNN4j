@@ -28,7 +28,7 @@ public class Helper {
         return new DataMatrix<>(spikes, spikes.get(0).size());
     }
 
-    public DataVector<SpikeType> generateSpikesForTwoRowsOfSample(
+    private DataVector<SpikeType> generateSpikesForTwoRowsOfSample(
             DataVector<Double> first,
             DataVector<Double> second,
             DataVector<Double> threshold
