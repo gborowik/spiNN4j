@@ -1,6 +1,6 @@
 package com.spiNN4j.runner;
 
-import com.spiNN4j.model.algorithm.AlgorithmType;
+import com.spiNN4j.model.types.AlgorithmType;
 
 import java.io.Closeable;
 import java.io.IOException;
