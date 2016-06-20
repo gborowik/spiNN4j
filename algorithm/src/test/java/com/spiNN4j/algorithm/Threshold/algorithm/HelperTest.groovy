@@ -26,10 +26,10 @@ public class HelperTest extends Specification {
         [[5d], [3d], [7d]] | [[2d], [4d]]
     }
 
-    DataMatrix<Double> toDataMatrix(List<List<Double>> data) {
+    DataMatrix<?> toDataMatrix(List<List<?>> data) {
         int width = data.first()?.size() ?: 2
-        return new DataMatrix<Double>(data.collect {
-            new DataVector<Double>(it)
+        return new DataMatrix<?>(data.collect {
+            new DataVector<?>(it)
         }, width)
     }
 
