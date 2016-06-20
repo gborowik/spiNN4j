@@ -1,4 +1,4 @@
-package com.spiNN4j.model.algorithm;
+package com.spiNN4j.model.types;
 
 /**
  * Created by Grzegorz Borowik on 2016-06-20 4:11 PM.
