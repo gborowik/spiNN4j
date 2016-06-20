@@ -1,6 +1,6 @@
 package com.spiNN4j.runner;
 
-import com.spiNN4j.model.algorithm.Type;
+import com.spiNN4j.model.algorithm.AlgorithmType;
 
 import java.io.Closeable;
 import java.io.IOException;
@@ -12,9 +12,9 @@ import java.io.Serializable;
  */
 public class Configurator implements Serializable, Closeable {
 
-    protected Type type;
-    public Configurator algorithmType(Type type) {
-        this.type = type;
+    protected AlgorithmType algorithmType;
+    public Configurator algorithmType(AlgorithmType algorithmType) {
+        this.algorithmType = algorithmType;
         return this;
     }
 
