@@ -35,7 +35,7 @@ public class Helper {
     ) {
         return new DataVector<>(StreamUtils.zip(
                 first.getData().stream(), second.getData().stream(), threshold.getData().stream(),
-                (a, b, tr) -> generateSpike(a - b, tr))
+                (fir, sec, tr) -> generateSpike(sec - fir, tr))
                 .collect(Collectors.toList()));
     }
 }
