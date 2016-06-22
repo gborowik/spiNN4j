@@ -14,7 +14,7 @@ import static java.lang.Math.abs;
  * Created by Grzegorz Borowik on 2016-06-19 2:40 AM.
  * e-mail: borowik.grzegorz@gmail.com
  */
-public class Helper {
+public class ThresholdHelper {
 
     public DataMatrix<Double> absoluteDifferenceBetweenSuccessiveRows(DataMatrix<Double> data) {
         List<DataVector<Double>> differences = StreamEx.of(data.getData())

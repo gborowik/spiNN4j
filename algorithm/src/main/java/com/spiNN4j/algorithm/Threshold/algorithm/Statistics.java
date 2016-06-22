@@ -7,7 +7,7 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-import static com.spiNN4j.algorithm.Threshold.algorithm.Helper.sumOfTwoRows;
+import static com.spiNN4j.algorithm.Threshold.algorithm.ThresholdHelper.sumOfTwoRows;
 
 /**
  * Created by Grzegorz Borowik on 2016-06-17 2:54 PM.

@@ -15,7 +15,7 @@ import static com.spiNN4j.model.types.SpikeType.generateSpike;
  * Created by Grzegorz Borowik on 2016-06-20 4:08 PM.
  * e-mail: borowik.grzegorz@gmail.com
  */
-public class Helper {
+public class AERHelper {
 
     public DataMatrix<SpikeType> generateSpikesForSuccessiveRowsOfSample(
             DataMatrix<Double> data,

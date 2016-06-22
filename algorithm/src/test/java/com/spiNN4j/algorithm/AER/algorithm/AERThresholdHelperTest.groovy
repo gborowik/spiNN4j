@@ -13,9 +13,9 @@ import static com.spiNN4j.model.types.SpikeType.POSITIVE_SPIKE
  * Created by Grzegorz Borowik on 2016-06-20 6:10 PM.
  * e-mail: borowik.grzegorz@gmail.com
  */
-public class HelperTest extends Specification {
+public class AERThresholdHelperTest extends Specification {
 
-    Helper helper = new Helper()
+    AERHelper helper = new AERHelper()
 
     def "Should generateSpikesForSuccessiveRowsOfSample"() {
         when:

@@ -8,9 +8,9 @@ import spock.lang.Specification
  * Created by Grzegorz Borowik on 2016-06-19 6:40 PM.
  * e-mail: borowik.grzegorz@gmail.com
  */
-public class HelperTest extends Specification {
+public class AERThresholdHelperTest extends Specification {
 
-    Helper helper = new Helper()
+    ThresholdHelper helper = new ThresholdHelper()
 
     def "Should return absoluteDifferenceBetweenSuccessiveRows"() {
         when:
