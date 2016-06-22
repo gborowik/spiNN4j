@@ -1,4 +1,4 @@
-package com.spiNN4j.algorithm.Threshold.model;
+package com.spiNN4j.algorithm.threshold.model;
 
 import com.spiNN4j.model.data.DataVector;
 

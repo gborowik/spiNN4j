@@ -1,4 +1,4 @@
-package com.spiNN4j.algorithm.Threshold.algorithm;
+package com.spiNN4j.algorithm.threshold.algorithm;
 
 import com.codepoetics.protonpack.StreamUtils;
 import com.spiNN4j.model.data.DataMatrix;
