@@ -13,6 +13,7 @@ import java.io.Serializable;
 public class Configurator implements Serializable, Closeable {
 
     protected AlgorithmType algorithmType;
+
     public Configurator algorithmType(AlgorithmType algorithmType) {
         this.algorithmType = algorithmType;
         return this;
@@ -20,6 +21,7 @@ public class Configurator implements Serializable, Closeable {
 
 
     protected String folder;
+
     public Configurator folder(String folder) {
         this.folder = folder;
         return this;
@@ -27,8 +29,17 @@ public class Configurator implements Serializable, Closeable {
 
 
     protected String fileMask;
+
     public Configurator fileMask(String fileMask) {
         this.fileMask = fileMask;
+        return this;
+    }
+
+
+    protected Double actionPotential;
+
+    public Configurator actionPotential(Double val) {
+        this.actionPotential = val;
         return this;
     }
 
