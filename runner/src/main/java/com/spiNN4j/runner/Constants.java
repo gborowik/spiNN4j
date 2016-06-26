@@ -7,5 +7,6 @@ package com.spiNN4j.runner;
 public class Constants {
 
     public final static Double SPIKE = 1.0d;
+    public final static Double NO_POTENTIAL = 0.0d;
 
 }

@@ -11,5 +11,9 @@ public class MiddleNetwork extends Network {
     @Override
     public void tick() {
 
+        neurons.parallelStream().forEach(neuron -> neuron.checkMembranePotentialForAction());
+
+        neurons.parallelStream().forEach(neuron -> neuron.propagateSpikesToDendrites());
+
     }
 }

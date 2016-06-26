@@ -3,6 +3,7 @@ package com.spiNN4j.algorithm.STDP.algorithm;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.spiNN4j.runner.Constants.NO_POTENTIAL;
 import static com.spiNN4j.runner.Constants.SPIKE;
 
 /**
@@ -13,6 +14,7 @@ public class Neuron {
 
     private Double membranePotential;
     private Double maxMembranePotential;
+    private Double actionPotential;
 
     protected Set<Synapse> incomingDendrites = new HashSet<>();
     protected Set<Synapse> outgoingDendrites = new HashSet<>();
@@ -32,7 +34,11 @@ public class Neuron {
     }
 
     public void resetMembranePotential() {
-        membranePotential = 0.0d;
+        membranePotential = NO_POTENTIAL;
+    }
+
+    public void resetActionPotential() {
+        actionPotential = NO_POTENTIAL;
     }
 
     public void receiveSpike(Double spikeValue) {
@@ -41,12 +47,15 @@ public class Neuron {
 
     public void checkMembranePotentialForAction() {
         if (membranePotential >= maxMembranePotential) {
-            propagateSpikesToDendrites();
+            actionPotential = membranePotential;
             resetMembranePotential();
         }
     }
 
-    private void propagateSpikesToDendrites() {
-        outgoingDendrites.stream().forEach(synapse -> synapse.propagateSpike(SPIKE));
+    public void propagateSpikesToDendrites() {
+        if (actionPotential > NO_POTENTIAL) {
+            outgoingDendrites.stream().forEach(synapse -> synapse.propagateSpike(SPIKE));
+            resetActionPotential();
+        }
     }
 }
