@@ -3,8 +3,8 @@ package com.spiNN4j.algorithm.STDP.algorithm;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.spiNN4j.runner.Constants.NO_POTENTIAL;
-import static com.spiNN4j.runner.Constants.SPIKE;
+import static com.spiNN4j.model.types.ActionPotential.NO_POTENTIAL;
+import static com.spiNN4j.model.types.ActionPotential.SPIKE;
 
 /**
  * Created by Grzegorz Borowik on 2016-06-23 6:16 PM.
