@@ -1,5 +1,6 @@
 package com.spiNN4j.algorithm.STDP.algorithm;
 
+import static com.spiNN4j.algorithm.STDP.configurator.SynapseConfigurator.*;
 import static java.lang.Math.exp;
 
 /**
@@ -7,8 +8,6 @@ import static java.lang.Math.exp;
  * e-mail: borowik.grzegorz@gmail.com
  */
 public class Synapse {
-
-    private Double weight;
 
     private Neuron preSynapticNeuron;
     private Neuron postSynapticNeuron;
@@ -29,26 +28,35 @@ public class Synapse {
         postSynapticNeuron.receiveSpike(spikeValue);
     }
 
+    private Double weight;
+    private Double tauPositive = TAU_POSITIVE_DEFAULT;
+    private Double tauNegative = TAU_NEGATIVE_DEFAULT;
+    private Double weightPositive = WEIGHT_POSITIVE_DEFAULT;
+    private Double weightNegative = WEIGHT_NEGATIVE_DEFAULT;
+    private Double learningRate = LEARNING_RATE_DEFAULT;
+
     public void updateWeight() {
-       if(preSynapticNeuron.spiked() || postSynapticNeuron.spiked()){
-           update();
-       }
+        if (preSynapticNeuron.spiked() || postSynapticNeuron.spiked()) {
+            sumUpWithSynapseWeight(
+                    calculateWeightUpdate(preSynapticNeuron.getSpikeTime() - postSynapticNeuron.getSpikeTime())
+            );
+        }
     }
 
-    private void update(){
-        final Double deltaT = preSynapticNeuron.getSpikeTime() - postSynapticNeuron.getSpikeTime();
-
-        if (deltaT < 0.0d) {
-            delta_w = W_plus * exp(deltaT / tau_plus)
-                    * learningRate;
-        } else if (deltaT > 0) {
-            delta_w = -W_minus * exp(-deltaT / tau_minus)
-                    * learningRate;
-        }
-        if(Math.signum(str) == -1) {
-            synapse.setStrength(str - delta_w);
+    private void sumUpWithSynapseWeight(Double weightDiff) {
+        if (weight < 0.0d) {
+            weight -= weightDiff;
         } else {
-            synapse.setStrength(str + delta_w);
+            weight += weightDiff;
         }
     }
+
+    private Double calculateWeightUpdate(Double timeDiff) {
+        if (timeDiff < 0.0d) {
+            return (weightPositive * learningRate * exp(timeDiff / tauPositive));
+        } else {
+            return (-weightNegative * learningRate * exp(-timeDiff / tauNegative));
+        }
+    }
+
 }
