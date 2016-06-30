@@ -1,4 +1,6 @@
-package com.spiNN4j.model.data;
+package com.spiNN4j.io.model;
+
+import com.spiNN4j.model.data.DataMatrix;
 
 import java.util.stream.Stream;
 
