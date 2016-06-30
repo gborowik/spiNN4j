@@ -48,7 +48,7 @@ public class Neuron {
         membranePotential += spikeValue;
     }
 
-    public void checkMembranePotentialForAction() {
+    public void checkMembranePotentialForAction(Double time) {
         if (membranePotential >= maxMembranePotential) {
             actionPotential = membranePotential;
             resetMembranePotential();

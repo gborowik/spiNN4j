@@ -8,12 +8,19 @@ import com.spiNN4j.algorithm.STDP.model.Network;
  */
 public class MiddleNetwork extends Network {
 
+    private Double time = 0.0d;
+
     @Override
     public void tick() {
 
-        neurons.parallelStream().forEach(neuron -> neuron.checkMembranePotentialForAction());
+        time++;
+
+        neurons.parallelStream().forEach(neuron -> neuron.checkMembranePotentialForAction(time));
 
         neurons.parallelStream().forEach(neuron -> neuron.propagateSpikesToDendrites());
 
+        synapses.parallelStream().forEach(synapse -> synapse.updateWeight());
+
     }
+
 }

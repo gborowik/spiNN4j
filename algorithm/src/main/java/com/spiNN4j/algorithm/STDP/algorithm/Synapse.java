@@ -43,19 +43,19 @@ public class Synapse {
         }
     }
 
-    private void sumUpWithSynapseWeight(Double weightDiff) {
+    private void sumUpWithSynapseWeight(Double weightUpdate) {
         if (weight < 0.0d) {
-            weight -= weightDiff;
+            weight -= weightUpdate;
         } else {
-            weight += weightDiff;
+            weight += weightUpdate;
         }
     }
 
-    private Double calculateWeightUpdate(Double timeDiff) {
-        if (timeDiff < 0.0d) {
-            return (weightPositive * learningRate * exp(timeDiff / tauPositive));
+    private Double calculateWeightUpdate(Double timeDifference) {
+        if (timeDifference < 0.0d) {
+            return (weightPositive * learningRate * exp(timeDifference / tauPositive));
         } else {
-            return (-weightNegative * learningRate * exp(-timeDiff / tauNegative));
+            return (-weightNegative * learningRate * exp(-timeDifference / tauNegative));
         }
     }
 
