@@ -5,6 +5,6 @@ package com.spiNN4j.model.data;
  * e-mail: borowik.grzegorz@gmail.com
  */
 public class Pair<T> {
-    protected T first;
-    protected T second;
+    public T first;
+    public T second;
 }

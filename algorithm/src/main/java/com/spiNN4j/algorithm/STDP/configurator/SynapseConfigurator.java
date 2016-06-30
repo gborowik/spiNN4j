@@ -6,13 +6,15 @@ package com.spiNN4j.algorithm.STDP.configurator;
  */
 public class SynapseConfigurator {
 
-    public static final double TAU_POSITIVE_DEFAULT = 30;
+    public static final Double TAU_POSITIVE_DEFAULT = 30d;
 
-    public static final double TAU_NEGATIVE_DEFAULT = 60;
+    public static final Double TAU_NEGATIVE_DEFAULT = 60d;
 
-    public static final double WEIGHT_POSITIVE_DEFAULT = 10;
+    public static final Double WEIGHT_POSITIVE_DEFAULT = 10d;
 
-    public static final double WEIGHT_NEGATIVE_DEFAULT = 10;
+    public static final Double WEIGHT_NEGATIVE_DEFAULT = 10d;
 
-    public static final double LEARNING_RATE_DEFAULT = .01;
+    public static final Double LEARNING_RATE_DEFAULT = .01d;
+
+    public static final Double ACTIVATION_THRESHOLD = 30d;
 }
