@@ -16,5 +16,4 @@ public class SynapseConfigurator {
 
     public static final Double LEARNING_RATE_DEFAULT = .01d;
 
-    public static final Double ACTIVATION_THRESHOLD = 30d;
 }

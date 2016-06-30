@@ -10,7 +10,7 @@ public enum Izhikevich {
 
     TONIC_SPIKING(0.02d, 0.2d, -65.0d, 6.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.TONIC_SPIKING;
         }
 
@@ -21,7 +21,7 @@ public enum Izhikevich {
     },
     PHASIC_SPIKING(0.02d, 0.25d, -65.0d, 6.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.PHASIC_SPIKING;
         }
 
@@ -32,7 +32,7 @@ public enum Izhikevich {
     },
     TONIC_BURSTING(0.02d, 0.2d, -50.0d, 2.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.TONIC_BURSTING;
         }
 
@@ -43,7 +43,7 @@ public enum Izhikevich {
     },
     PHASIC_BURSTING(0.02d, 0.25d, -55.0d, 0.05d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.PHASIC_BURSTING;
         }
 
@@ -54,7 +54,7 @@ public enum Izhikevich {
     },
     MIXED_MODE(0.02d, 0.2d, -55.0d, 4.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.MIXED_MODE;
         }
 
@@ -65,7 +65,7 @@ public enum Izhikevich {
     },
     SPIKE_FREQ_ADAPT(0.01d, 0.2d, -65.0d, 8.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.SPIKE_FREQ_ADAPT;
         }
 
@@ -76,7 +76,7 @@ public enum Izhikevich {
     },
     CLASS_1(0.02d, -0.1d, -55.0d, 6.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.CLASS_1;
         }
 
@@ -87,7 +87,7 @@ public enum Izhikevich {
     },
     CLASS_2(0.2d, 0.26d, -65.0d, 0.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.CLASS_2;
         }
 
@@ -98,7 +98,7 @@ public enum Izhikevich {
     },
     SPIKE_LATENCY(0.02d, 0.2d, -65.0d, 6.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.SPIKE_LATENCY;
         }
 
@@ -109,7 +109,7 @@ public enum Izhikevich {
     },
     SUBTHRESH_OSC(0.05d, 0.26d, -60.0d, 0.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.SUBTHRESH_OSC;
         }
 
@@ -120,7 +120,7 @@ public enum Izhikevich {
     },
     RESONATOR(0.1d, 0.26d, -60.0d, -1.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.RESONATOR;
         }
 
@@ -131,7 +131,7 @@ public enum Izhikevich {
     },
     INTEGRATOR(0.02d, -0.1d, -55.0d, 6.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.INTEGRATOR;
         }
 
@@ -142,7 +142,7 @@ public enum Izhikevich {
     },
     REBOUND_SPIKE(0.03d, 0.25d, -60.0d, 4.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.REBOUND_SPIKE;
         }
 
@@ -153,7 +153,7 @@ public enum Izhikevich {
     },
     REBOUND_BURST(0.03d, 0.25d, -52.0d, 0.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.REBOUND_BURST;
         }
 
@@ -164,7 +164,7 @@ public enum Izhikevich {
     },
     THRESH_VAR(0.03d, 0.25d, -60.0d, 4.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.THRESH_VAR;
         }
 
@@ -175,7 +175,7 @@ public enum Izhikevich {
     },
     BISTABLE(0.1d, 0.26d, -60.0d, 0.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.BISTABLE;
         }
 
@@ -186,7 +186,7 @@ public enum Izhikevich {
     },
     DAP(1.15d, 0.2d, -60.0d, -21.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.DAP;
         }
 
@@ -197,7 +197,7 @@ public enum Izhikevich {
     },
     ACCOMMODATION(0.02d, 1.0d, -55.0d, 4.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.ACCOMMODATION;
         }
 
@@ -208,7 +208,7 @@ public enum Izhikevich {
     },
     IISPIKE(-0.02d, -1.0d, -60.0d, 8.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.IISPIKE;
         }
 
@@ -219,7 +219,7 @@ public enum Izhikevich {
     },
     IIBURST(-0.026d, -1.0d, -45.0d, 0.0d) {
         @Override
-        public Izhikevich getType() {
+        protected Izhikevich getType() {
             return Izhikevich.IIBURST;
         }
 
@@ -242,7 +242,7 @@ public enum Izhikevich {
         this.d = d;
     }
 
-    public abstract Izhikevich getType();
+    protected abstract Izhikevich getType();
 
     protected abstract Double activationFunction(Double V, Double u, Double I, Double tau);
 
@@ -250,9 +250,9 @@ public enum Izhikevich {
         return (tau * this.a * (this.b * V - u));
     }
 
-    public boolean tick(Izhikevich type, Pair<Double> VAndU, Double I, Double activationThreshold, Double tau) {
+    public boolean tick(Pair<Double> VAndU, Double I, Double activationThreshold, Double tau) {
 
-        Double newV = type.activationFunction(VAndU.first, VAndU.second, I, tau);
+        Double newV = this.getType().activationFunction(VAndU.first, VAndU.second, I, tau);
         Double newU = recoveryFunction(VAndU.first, VAndU.second, tau);
 
         if (newV >= activationThreshold) {
