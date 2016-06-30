@@ -15,9 +15,12 @@ public class Neuron {
     private Double membranePotential;
     private Double maxMembranePotential;
     private Double actionPotential;
+    private boolean spiked;
+    private Double spikeTime;
 
     protected Set<Synapse> incomingDendrites = new HashSet<>();
     protected Set<Synapse> outgoingDendrites = new HashSet<>();
+
 
     public Neuron addDendriteToNeuron(Synapse synapse) {
         this.incomingDendrites.add(synapse);
@@ -57,5 +60,13 @@ public class Neuron {
             outgoingDendrites.stream().forEach(synapse -> synapse.propagateSpike(SPIKE));
             resetActionPotential();
         }
+    }
+
+    public boolean spiked() {
+        return spiked;
+    }
+
+    public Double getSpikeTime() {
+        return spikeTime;
     }
 }
