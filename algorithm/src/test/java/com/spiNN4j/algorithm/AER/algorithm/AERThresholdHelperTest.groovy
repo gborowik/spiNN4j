@@ -2,12 +2,12 @@ package com.spiNN4j.algorithm.AER.algorithm
 
 import com.spiNN4j.model.data.DataMatrix
 import com.spiNN4j.model.data.DataVector
-import com.spiNN4j.model.types.SpikeType
+import com.spiNN4j.algorithm.AER.model.SpikeType
 import spock.lang.Specification
 
-import static com.spiNN4j.model.types.SpikeType.NEGATIVE_SPIKE
-import static com.spiNN4j.model.types.SpikeType.NO_SPIKE
-import static com.spiNN4j.model.types.SpikeType.POSITIVE_SPIKE
+import static SpikeType.NEGATIVE_SPIKE
+import static SpikeType.NO_SPIKE
+import static SpikeType.POSITIVE_SPIKE
 
 /**
  * Created by Grzegorz Borowik on 2016-06-20 6:10 PM.
