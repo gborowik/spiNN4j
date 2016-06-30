@@ -1,7 +1,7 @@
 package com.spiNN4j.algorithm.AER.algorithm;
 
 import com.codepoetics.protonpack.StreamUtils;
-import com.spiNN4j.model.types.SpikeType;
+import com.spiNN4j.algorithm.AER.model.SpikeType;
 import com.spiNN4j.model.data.DataMatrix;
 import com.spiNN4j.model.data.DataVector;
 import one.util.streamex.StreamEx;
@@ -9,7 +9,7 @@ import one.util.streamex.StreamEx;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static com.spiNN4j.model.types.SpikeType.generateSpike;
+import static com.spiNN4j.algorithm.AER.model.SpikeType.generateSpike;
 
 /**
  * Created by Grzegorz Borowik on 2016-06-20 4:08 PM.
