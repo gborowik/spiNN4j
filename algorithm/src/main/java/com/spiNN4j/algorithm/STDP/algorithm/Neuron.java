@@ -17,9 +17,9 @@ import static com.spiNN4j.model.types.NeuronTypes.Izhikevich.TONIC_SPIKING;
  */
 public class Neuron {
 
-    private Double potential;
+    private Double current;
 
-    private Double V = 0.0d;
+    private Double V = -65.0d;
     private Double u = 0.0d;
 
     private Pair<Double> VAndU = new Pair<>(V, u);
@@ -27,43 +27,50 @@ public class Neuron {
     private boolean spiked;
     private Double spikeTime;
 
-    protected Set<Synapse> incomingDendrites = new HashSet<>();
-    protected Set<Synapse> outgoingDendrites = new HashSet<>();
+    protected Set<Synapse> incomingSynapses = new HashSet<>();
+    protected Set<Synapse> outgoingSynapses = new HashSet<>();
     private Double activationThreshold = ACTIVATION_THRESHOLD;
 
     Izhikevich izhikevich = TONIC_SPIKING;
     private Double timeStep = TIME_STEP;
 
 
-    public Neuron addDendriteToNeuron(Synapse synapse) {
-        this.incomingDendrites.add(synapse);
+    public Neuron addSynapseToNeuron(Synapse synapse) {
+        this.incomingSynapses.add(synapse);
         return this;
     }
 
-    public Neuron addDendriteFromNeuron(Synapse synapse) {
-        this.outgoingDendrites.add(synapse);
+    public Neuron addSynapseFromNeuron(Synapse synapse) {
+        this.outgoingSynapses.add(synapse);
         return this;
     }
 
     public void resetPotential() {
-        potential = NO_POTENTIAL;
+        current = NO_POTENTIAL;
     }
 
-    public void receiveSpike(Double voltage) {
-        potential += voltage;
+    public void receiveSpike(Double weight) {
+        current += weight;
     }
 
-    public void checkMembranePotentialForAction(Double time) {
-        spiked = izhikevich.tick(VAndU, potential, activationThreshold, timeStep);
+    public boolean checkMembranePotential(Double time) {
+        spiked = izhikevich.tick(VAndU, current, activationThreshold, timeStep);
         if (spiked) {
             spikeTime = time;
         }
+        return spiked;
     }
 
-    public void propagateSpikesToDendrites() {
-        if (spiked) {
-            outgoingDendrites.stream().forEach(synapse -> synapse.propagateSpike(V));
-        }
+    public void propagateSpikesToOutgoingSynapses() {
+        outgoingSynapses.stream().forEach(synapse -> synapse.propagateSpike());
+    }
+
+    public void updateWeightForIncomingSynapses() {
+        incomingSynapses.stream().forEach(synapse -> synapse.updateWeight());
+    }
+
+    public void updateWeightForOutgoingSynapses() {
+        outgoingSynapses.stream().forEach(synapse -> synapse.updateWeight());
     }
 
     public boolean spiked() {

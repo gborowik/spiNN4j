@@ -15,11 +15,17 @@ public class MiddleNetwork extends Network {
 
         time++;
 
-        neurons.parallelStream().forEach(neuron -> neuron.checkMembranePotentialForAction(time));
+        neurons.parallelStream()
+                .filter(neuron -> neuron.checkMembranePotential(time))
+                .forEach(neuron -> {
+                    neuron.updateWeightForIncomingSynapses();
+                    neuron.updateWeightForOutgoingSynapses();
+                    neuron.propagateSpikesToOutgoingSynapses();
+                });
 
-        neurons.parallelStream().forEach(neuron -> neuron.propagateSpikesToDendrites());
+        //neurons.parallelStream().forEach(neuron -> neuron.propagateSpikesToOutgoingSynapses());
 
-        synapses.parallelStream().forEach(synapse -> synapse.updateWeight());
+        //synapses.parallelStream().forEach(synapse -> synapse.updateWeight());
 
     }
 

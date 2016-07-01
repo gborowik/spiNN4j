@@ -24,8 +24,8 @@ public class Synapse {
         this.weight = 0d;
     }
 
-    public void propagateSpike(Double spikeValue) {
-        postSynapticNeuron.receiveSpike(spikeValue);
+    public void propagateSpike() {
+        postSynapticNeuron.receiveSpike(weight);
     }
 
     private Double weight;
@@ -36,11 +36,11 @@ public class Synapse {
     private Double learningRate = LEARNING_RATE_DEFAULT;
 
     public void updateWeight() {
-        if (preSynapticNeuron.spiked() || postSynapticNeuron.spiked()) {
-            sumUpWithSynapseWeight(
-                    calculateWeightUpdate(preSynapticNeuron.getSpikeTime() - postSynapticNeuron.getSpikeTime())
-            );
-        }
+        sumUpWithSynapseWeight(
+                calculateWeightUpdate(
+                        preSynapticNeuron.getSpikeTime() - postSynapticNeuron.getSpikeTime()
+                )
+        );
     }
 
     private void sumUpWithSynapseWeight(Double weightUpdate) {
