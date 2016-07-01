@@ -1,6 +1,6 @@
 package com.spiNN4j.algorithm.AER;
 
-import com.spiNN4j.model.data.StreamOfSamples;
+import com.spiNN4j.io.model.StreamOfSamples;
 import com.spiNN4j.algorithm.AER.model.StreamOfSamplesAsSpikes;
 import com.spiNN4j.model.algorithm.Algorithm;
 import com.spiNN4j.model.algorithm.AlgorithmRunner;
