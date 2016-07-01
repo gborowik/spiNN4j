@@ -5,6 +5,9 @@ package com.spiNN4j.algorithm.STDP.configurator;
  * e-mail: borowik.grzegorz@gmail.com
  */
 public class NeuronConfigurator {
+
     public static final Double ACTIVATION_THRESHOLD = 30d;
+
     public static final Double TIME_STEP = 1d;
+
 }

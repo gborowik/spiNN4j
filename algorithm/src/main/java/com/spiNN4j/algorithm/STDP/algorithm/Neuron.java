@@ -24,8 +24,7 @@ public class Neuron {
 
     private Pair<Double> VAndU = new Pair<>(V, u);
 
-    private boolean spiked;
-    private Double spikeTime;
+    private Double spikeTime = 0d;
 
     protected Set<Synapse> incomingSynapses = new HashSet<>();
     protected Set<Synapse> outgoingSynapses = new HashSet<>();
@@ -54,11 +53,12 @@ public class Neuron {
     }
 
     public boolean checkMembranePotential(Double time) {
-        spiked = izhikevich.tick(VAndU, current, activationThreshold, timeStep);
-        if (spiked) {
+        if (izhikevich.tick(VAndU, current, activationThreshold, timeStep)) {
             spikeTime = time;
+            return true;
+        } else {
+            return false;
         }
-        return spiked;
     }
 
     public void propagateSpikesToOutgoingSynapses() {
@@ -71,10 +71,6 @@ public class Neuron {
 
     public void updateWeightForOutgoingSynapses() {
         outgoingSynapses.stream().forEach(synapse -> synapse.updateWeight());
-    }
-
-    public boolean spiked() {
-        return spiked;
     }
 
     public Double getSpikeTime() {

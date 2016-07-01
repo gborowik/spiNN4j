@@ -33,7 +33,6 @@ public class Synapse {
     private Double tauNegative = TAU_NEGATIVE_DEFAULT;
     private Double weightPositive = WEIGHT_POSITIVE_DEFAULT;
     private Double weightNegative = WEIGHT_NEGATIVE_DEFAULT;
-    private Double learningRate = LEARNING_RATE_DEFAULT;
 
     public void updateWeight() {
         sumUpWithSynapseWeight(
@@ -53,9 +52,9 @@ public class Synapse {
 
     private Double calculateWeightUpdate(Double timeDifference) {
         if (timeDifference < 0.0d) {
-            return (weightPositive * learningRate * exp(timeDifference / tauPositive));
+            return (weightPositive * exp(timeDifference / tauPositive));
         } else {
-            return (-weightNegative * learningRate * exp(-timeDifference / tauNegative));
+            return (-weightNegative * exp(-timeDifference / tauNegative));
         }
     }
 
