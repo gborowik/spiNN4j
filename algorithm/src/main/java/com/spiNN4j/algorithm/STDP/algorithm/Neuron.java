@@ -8,7 +8,7 @@ import java.util.Set;
 
 import static com.spiNN4j.algorithm.STDP.configurator.NeuronConfigurator.ACTIVATION_THRESHOLD;
 import static com.spiNN4j.algorithm.STDP.configurator.NeuronConfigurator.TIME_STEP;
-import static com.spiNN4j.model.types.ActionPotential.NO_POTENTIAL;
+import static com.spiNN4j.model.types.Current.NO_CURRENT;
 import static com.spiNN4j.model.types.NeuronTypes.Izhikevich.TONIC_SPIKING;
 
 /**
@@ -24,7 +24,7 @@ public class Neuron {
 
     private Pair<Double> VAndU = new Pair<>(V, u);
 
-    private Double spikeTime = 0d;
+    private Double spikeTime = 0.0d;
 
     protected Set<Synapse> incomingSynapses = new HashSet<>();
     protected Set<Synapse> outgoingSynapses = new HashSet<>();
@@ -44,15 +44,15 @@ public class Neuron {
         return this;
     }
 
-    public void resetPotential() {
-        current = NO_POTENTIAL;
+    public void resetCurrent() {
+        current = NO_CURRENT;
     }
 
     public void receiveSpike(Double weight) {
         current += weight;
     }
 
-    public boolean checkMembranePotential(Double time) {
+    public boolean updatePotentialAndCheckIfFired(Double time) {
         if (izhikevich.tick(VAndU, current, activationThreshold, timeStep)) {
             spikeTime = time;
             return true;

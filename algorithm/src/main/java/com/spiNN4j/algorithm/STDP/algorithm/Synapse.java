@@ -28,7 +28,7 @@ public class Synapse {
         postSynapticNeuron.receiveSpike(weight);
     }
 
-    private Double weight;
+    private Double weight = 0.1d;
     private Double tauPositive = TAU_POSITIVE_DEFAULT;
     private Double tauNegative = TAU_NEGATIVE_DEFAULT;
     private Double weightPositive = WEIGHT_POSITIVE_DEFAULT;
@@ -43,18 +43,16 @@ public class Synapse {
     }
 
     private void sumUpWithSynapseWeight(Double weightUpdate) {
-        if (weight < 0.0d) {
-            weight -= weightUpdate;
-        } else {
-            weight += weightUpdate;
-        }
+        weight += weightUpdate;
     }
 
     private Double calculateWeightUpdate(Double timeDifference) {
         if (timeDifference < 0.0d) {
             return (weightPositive * exp(timeDifference / tauPositive));
-        } else {
+        } else if (timeDifference > 0.0d) {
             return (-weightNegative * exp(-timeDifference / tauNegative));
+        } else {
+            return 0.0d;
         }
     }
 
