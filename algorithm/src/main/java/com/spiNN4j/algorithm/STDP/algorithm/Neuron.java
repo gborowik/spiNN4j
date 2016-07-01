@@ -17,7 +17,7 @@ import static com.spiNN4j.model.types.NeuronTypes.Izhikevich.TONIC_SPIKING;
  */
 public class Neuron {
 
-    private Double current;
+    private Double current = NO_CURRENT;
 
     private Double V = -65.0d;
     private Double u = 0.0d;

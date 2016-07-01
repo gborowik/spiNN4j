@@ -14,9 +14,8 @@ public class NeuronTest {
         Neuron neuron = new Neuron();
 
         neuron.receiveSpike(10d);
-        neuron.updatePotentialAndCheckIfFired(10d);
 
-        assertThat(neuron.spiked() == false);
+        assertThat(neuron.updatePotentialAndCheckIfFired(10d) == false);
     }
 
 }
