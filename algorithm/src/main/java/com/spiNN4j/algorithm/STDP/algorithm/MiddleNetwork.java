@@ -23,10 +23,6 @@ public class MiddleNetwork extends Network {
                     neuron.propagateSpikesToOutgoingSynapses();
                 });
 
-        //neurons.parallelStream().forEach(neuron -> neuron.propagateSpikesToOutgoingSynapses());
-
-        //synapses.parallelStream().forEach(synapse -> synapse.updateWeight());
-
     }
 
 }
