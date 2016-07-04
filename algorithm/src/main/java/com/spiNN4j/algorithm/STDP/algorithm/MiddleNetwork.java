@@ -23,6 +23,9 @@ public class MiddleNetwork extends Network {
                     neuron.propagateSpikesToOutgoingSynapses();
                 });
 
+        neurons.parallelStream()
+                .forEach(neuron -> neuron.spikeNotReceivedDecreaseCurrent());
+
     }
 
 }
