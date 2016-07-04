@@ -10,7 +10,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
  */
 public class NeuronTest {
     @Test
-    public void checkMembranePotentialForAction() throws Exception {
+    public void checkMembranePotential() throws Exception {
         Neuron neuron = new Neuron();
 
         neuron.receiveSpike(10d);
