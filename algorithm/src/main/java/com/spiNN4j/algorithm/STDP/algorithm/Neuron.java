@@ -61,16 +61,16 @@ public class Neuron {
         }
     }
 
-    public void propagateSpikesToOutgoingSynapses() {
-        outgoingSynapses.stream().forEach(synapse -> synapse.propagateSpike());
-    }
-
     public void updateWeightForIncomingSynapses() {
         incomingSynapses.stream().forEach(synapse -> synapse.updateWeight());
     }
 
     public void updateWeightForOutgoingSynapses() {
         outgoingSynapses.stream().forEach(synapse -> synapse.updateWeight());
+    }
+
+    public void propagateSpikesToOutgoingSynapses() {
+        outgoingSynapses.stream().forEach(synapse -> synapse.propagateSpike());
     }
 
     public Double getSpikeTime() {
