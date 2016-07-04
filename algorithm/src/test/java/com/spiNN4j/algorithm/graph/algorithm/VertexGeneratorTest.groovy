@@ -25,12 +25,12 @@ public class VertexGeneratorTest extends Specification {
         positions.stream().forEach { el -> listOfPositions.add(new ArrayList<Double>(Arrays.asList(el.x(), el.y(), el.z()))) }
 
         then:
-        listOfPositions.containsAll(expected)
+        (listOfPositions.containsAll(expected)) && (expected.size() == listOfPositions.size())
 
         where:
         nbOfElementsOnSide | distance | expected
         1                  | 1d       | [[1d, 1d, 1d]]
-        3                  | 1d       | [[1d, 1d, 1d], [1d, 1d, 2d], [1d, 2d, 1d], [2d, 1d, 1d], [1d, 2d, 2d], [2d, 2d, 1d], [2d, 1d, 2d], [2d, 2d, 2d]]
+        2                  | 1d       | [[1d, 1d, 1d], [1d, 1d, 2d], [1d, 2d, 1d], [2d, 1d, 1d], [1d, 2d, 2d], [2d, 2d, 1d], [2d, 1d, 2d], [2d, 2d, 2d]]
     }
 
 }
