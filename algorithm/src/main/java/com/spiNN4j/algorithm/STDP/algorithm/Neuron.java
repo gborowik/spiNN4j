@@ -32,8 +32,12 @@ public class Neuron {
 
     Izhikevich izhikevich = TONIC_SPIKING;
     private Double timeStep = TIME_STEP;
-    private boolean spikeReceived = false;
+    private boolean spikeReceived;
 
+
+    public void initialize() {
+        spikeReceived = false;
+    }
 
     public Neuron addSynapseToNeuron(Synapse synapse) {
         this.incomingSynapses.add(synapse);
@@ -54,8 +58,8 @@ public class Neuron {
         spikeReceived = true;
     }
 
-    public void spikeNotReceivedDecreaseCurrent(){
-        if(!spikeReceived) resetCurrent();
+    public void spikeNotReceivedDecreaseCurrent() {
+        if (!spikeReceived) resetCurrent();
     }
 
     public boolean updatePotentialAndCheckIfFired(Double time) {
