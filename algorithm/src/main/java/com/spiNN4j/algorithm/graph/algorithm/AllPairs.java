@@ -1,5 +1,7 @@
 package com.spiNN4j.algorithm.graph.algorithm;
 
+import com.spiNN4j.model.data.Pair;
+
 import java.util.Iterator;
 import java.util.List;
 
@@ -48,15 +50,5 @@ public class AllPairs {
                 return current;
             }
         };
-    }
-
-    public static class Pair<T> {
-        public T first;
-        public T second;
-
-        public Pair(T first, T second) {
-            this.first = first;
-            this.second = second;
-        }
     }
 }
