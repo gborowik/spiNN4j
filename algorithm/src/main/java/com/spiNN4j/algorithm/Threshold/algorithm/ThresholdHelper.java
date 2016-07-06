@@ -16,7 +16,7 @@ import static java.lang.Math.abs;
  */
 public class ThresholdHelper {
 
-    public DataMatrix<Double> absoluteDifferenceBetweenSuccessiveRows(DataMatrix<Double> data) {
+    public static DataMatrix<Double> absoluteDifferenceBetweenSuccessiveRows(DataMatrix<Double> data) {
         List<DataVector<Double>> differences = StreamEx.of(data.getData())
                 .pairMap((first, second) -> absoluteDifferenceBetweenRows(first, second))
                 .collect(Collectors.toList());
@@ -24,14 +24,14 @@ public class ThresholdHelper {
         return new DataMatrix<>(differences, differences.get(0).size());
     }
 
-    private DataVector<Double> absoluteDifferenceBetweenRows(DataVector<Double> first, DataVector<Double> second) {
+    private static DataVector<Double> absoluteDifferenceBetweenRows(DataVector<Double> first, DataVector<Double> second) {
         return new DataVector<>(StreamUtils.zip(
                 first.getData().stream(), second.getData().stream(),
                 (a, b) -> abs(a - b))
                 .collect(Collectors.toList()));
     }
 
-    public DataVector<Double> multiplyRowByValue(DataVector<Double> vector, Double value) {
+    public static DataVector<Double> multiplyRowByValue(DataVector<Double> vector, Double value) {
         return new DataVector<>(vector.getData().stream()
                 .map(el -> el * value)
                 .collect(Collectors.toList()));
