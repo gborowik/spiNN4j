@@ -15,6 +15,8 @@ public class MiddleNetwork extends Network {
 
         time++;
 
+        neurons.parallelStream().forEach(neuron -> neuron.initialize());
+
         neurons.parallelStream()
                 .filter(neuron -> neuron.updatePotentialAndCheckIfFired(time))
                 .forEach(neuron -> {
