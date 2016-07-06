@@ -30,9 +30,9 @@ public class ConnectionGenerator {
 
     private boolean pairIsInTheRadius(Pair<Vertex> pair, Double radius) {
 
-        return (pow(pair.first.position().x() - pair.second.position().x(), 2.0d)
-                + pow(pair.first.position().y() - pair.second.position().y(), 2.0d)
-                + pow(pair.first.position().z() - pair.second.position().z(), 2.0d))
+        return (pow(pair.first.position().x() - pair.second.position().x(), 2.0d) +
+                pow(pair.first.position().y() - pair.second.position().y(), 2.0d) +
+                pow(pair.first.position().z() - pair.second.position().z(), 2.0d))
                 < (pow(radius, 2.0d));
     }
 
