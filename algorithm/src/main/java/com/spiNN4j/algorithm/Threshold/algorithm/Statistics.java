@@ -15,7 +15,7 @@ import static com.spiNN4j.algorithm.threshold.algorithm.ThresholdHelper.sumOfTwo
  */
 public class Statistics {
 
-    public DataVector<Double> arithmeticMeanForColumns(DataMatrix<Double> data) {
+    public static DataVector<Double> arithmeticMeanForColumns(DataMatrix<Double> data) {
         DataVector<Double> rowOfZeros = new DataVector<>(data.getWidth(), 0.0);
 
         return new DataVector<>(
@@ -26,7 +26,7 @@ public class Statistics {
                         .collect(Collectors.toList()));
     }
 
-    public DataVector<Double> standardDeviationForColumns(DataMatrix<Double> data) {
+    public static DataVector<Double> standardDeviationForColumns(DataMatrix<Double> data) {
         final ArrayList<Double> vector = new ArrayList<>();
 
         for (int column = 0; column < data.getWidth(); column++) {
@@ -36,7 +36,7 @@ public class Statistics {
         return new DataVector<>(vector);
     }
 
-    private Double standardDeviationForColumn(DataMatrix<Double> data, int column) {
+    private static Double standardDeviationForColumn(DataMatrix<Double> data, int column) {
         final DescriptiveStatistics descriptiveStatistics = new DescriptiveStatistics();
 
         data.getData().stream().forEach(row -> descriptiveStatistics.addValue(row.get(column)));
