@@ -19,11 +19,11 @@ import static net.seninp.jmotif.sax.algorithm.StdRandom.bernoulli;
 public class ConnectionGenerator {
 
     public List<Edge> generateConnectionsInSphereAndWithProbability(
-            List<Vertex> vertices, Double radius, Double p) {
+            List<Vertex> vertices, Double radius, Double probability) {
 
         return StreamSupport.stream(allPairs(vertices).spliterator(), false)
                 .filter(pair -> pairIsInTheRadius(pair, radius))
-                .filter(pair -> probability(p))
+                .filter(pair -> bernoulli(probability))
                 .map(pair -> new Edge(pair.first, pair.second))
                 .collect(Collectors.toList());
     }
@@ -34,10 +34,6 @@ public class ConnectionGenerator {
                 + pow(pair.first.position().y() - pair.second.position().y(), 2.0d)
                 + pow(pair.first.position().z() - pair.second.position().z(), 2.0d))
                 < (pow(radius, 2.0d));
-    }
-
-    private boolean probability(Double p) {
-        return bernoulli(p);
     }
 
 }
