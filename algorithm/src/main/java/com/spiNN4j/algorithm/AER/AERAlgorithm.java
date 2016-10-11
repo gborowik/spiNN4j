@@ -1,7 +1,7 @@
 package com.spiNN4j.algorithm.AER;
 
 import com.spiNN4j.algorithm.AER.model.StreamOfSamplesAsSpikes;
-import com.spiNN4j.io.model.StreamOfSamples;
+import com.spiNN4j.io.model.StreamOfSamplesAsDouble;
 import com.spiNN4j.model.algorithm.Algorithm;
 import com.spiNN4j.runner.Configurator;
 
@@ -10,11 +10,11 @@ import com.spiNN4j.runner.Configurator;
  * e-mail: borowik.grzegorz@gmail.com
  */
 public class AERAlgorithm implements Algorithm {
-    StreamOfSamples input;
+    StreamOfSamplesAsDouble input;
     StreamOfSamplesAsSpikes output;
     Configurator configurator;
 
-    public AERAlgorithm(StreamOfSamples input, StreamOfSamplesAsSpikes output, Configurator configurator) {
+    public AERAlgorithm(StreamOfSamplesAsDouble input, StreamOfSamplesAsSpikes output, Configurator configurator) {
         this.input = input;
         this.output = output;
         this.configurator = configurator;

@@ -1,6 +1,6 @@
 package com.spiNN4j.algorithm.AER;
 
-import com.spiNN4j.io.model.StreamOfSamples;
+import com.spiNN4j.io.model.StreamOfSamplesAsDouble;
 import com.spiNN4j.algorithm.AER.model.StreamOfSamplesAsSpikes;
 import com.spiNN4j.model.algorithm.Algorithm;
 import com.spiNN4j.model.algorithm.AlgorithmRunner;
@@ -10,11 +10,11 @@ import com.spiNN4j.runner.Configurator;
  * Created by Grzegorz Borowik on 2016-06-19 6:16 PM.
  * e-mail: borowik.grzegorz@gmail.com
  */
-public class AERRunner implements AlgorithmRunner<StreamOfSamples, StreamOfSamplesAsSpikes, Configurator> {
+public class AERRunner implements AlgorithmRunner<StreamOfSamplesAsDouble, StreamOfSamplesAsSpikes, Configurator> {
 
     @Override
-    public Class<StreamOfSamples> getInputType() {
-        return StreamOfSamples.class;
+    public Class<StreamOfSamplesAsDouble> getInputType() {
+        return StreamOfSamplesAsDouble.class;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class AERRunner implements AlgorithmRunner<StreamOfSamples, StreamOfSampl
     }
 
     @Override
-    public Algorithm newInstance(StreamOfSamples input, StreamOfSamplesAsSpikes output, Configurator configurator) {
+    public Algorithm newInstance(StreamOfSamplesAsDouble input, StreamOfSamplesAsSpikes output, Configurator configurator) {
         return new AERAlgorithm(input, output, configurator);
     }
 }

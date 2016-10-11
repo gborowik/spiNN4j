@@ -2,7 +2,7 @@ package com.spiNN4j.algorithm.threshold;
 
 import com.spiNN4j.algorithm.threshold.model.ThresholdVector;
 import com.spiNN4j.model.algorithm.Algorithm;
-import com.spiNN4j.io.model.StreamOfSamples;
+import com.spiNN4j.io.model.StreamOfSamplesAsDouble;
 import com.spiNN4j.runner.Configurator;
 
 /**
@@ -10,11 +10,11 @@ import com.spiNN4j.runner.Configurator;
  * e-mail: borowik.grzegorz@gmail.com
  */
 public class ThresholdAlgorithm implements Algorithm {
-    StreamOfSamples input;
+    StreamOfSamplesAsDouble input;
     ThresholdVector output;
     Configurator configurator;
 
-    public ThresholdAlgorithm(StreamOfSamples input, ThresholdVector output, Configurator configurator) {
+    public ThresholdAlgorithm(StreamOfSamplesAsDouble input, ThresholdVector output, Configurator configurator) {
         this.input = input;
         this.output = output;
         this.configurator = configurator;
