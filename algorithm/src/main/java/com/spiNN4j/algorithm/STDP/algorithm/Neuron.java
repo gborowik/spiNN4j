@@ -1,6 +1,8 @@
 package com.spiNN4j.algorithm.STDP.algorithm;
 
+import com.spiNN4j.algorithm.graph.model.Vertex;
 import com.spiNN4j.model.data.Pair;
+import com.spiNN4j.model.data.Position;
 import com.spiNN4j.model.types.NeuronTypes.Izhikevich;
 
 import java.util.HashSet;
@@ -15,7 +17,7 @@ import static com.spiNN4j.model.types.NeuronTypes.Izhikevich.TONIC_SPIKING;
  * Created by Grzegorz Borowik on 2016-06-23 6:16 PM.
  * e-mail: borowik.grzegorz@gmail.com
  */
-public class Neuron {
+public class Neuron extends Vertex{
 
     private Double current = NO_CURRENT;
 
@@ -33,6 +35,10 @@ public class Neuron {
     Izhikevich izhikevich = TONIC_SPIKING;
     private Double timeStep = TIME_STEP;
     private boolean spikeReceived;
+
+    public Neuron(Position position) {
+        super(position);
+    }
 
 
     public void initialize() {

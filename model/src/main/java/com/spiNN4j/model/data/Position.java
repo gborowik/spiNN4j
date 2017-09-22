@@ -7,9 +7,7 @@ package com.spiNN4j.model.data;
 public class Position extends Triple<Double> {
 
     public Position(Double x, Double y, Double z) {
-        first = x;
-        second = y;
-        third = z;
+        super(x,y,z);
     }
 
     public double x() {
