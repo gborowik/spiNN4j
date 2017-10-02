@@ -1,5 +1,6 @@
 package com.spiNN4j.algorithm.graph.algorithm
 
+import com.spiNN4j.model.data.Pair
 import spock.lang.Specification
 
 class AllPairsTest extends Specification {
@@ -29,7 +30,7 @@ class AllPairsTest extends Specification {
         ['1'] * 20 | 20 * 19 / 2
     }
 
-    private String concat(AllPairs.Pair<String> pair) {
+    private static String concat(Pair<String> pair) {
         return "${pair.first} ${pair.second}".toString()
     }
 }

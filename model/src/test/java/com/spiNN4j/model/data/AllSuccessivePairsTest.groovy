@@ -38,7 +38,7 @@ class AllSuccessivePairsTest extends Specification {
         ['1'] * 20 | 19
     }
 
-    private String concat(AllSuccessivePairs.Pair<String> pair) {
+    private static String concat(Pair<String> pair) {
         return "${pair.first} ${pair.second}".toString()
     }
 }
