@@ -5,6 +5,7 @@ build/*
 target/*
 classes/*
 out/*
+**/MANIFEST.MF
 
 # Windows image file caches
 Thumbs.db
